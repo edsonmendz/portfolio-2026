@@ -1,0 +1,638 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 8vh; /* Garante 10% da viewport para o header */
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+nav > div:first-child {
+    flex-grow: 1;
+}
+
+nav #nome h1 {
+    font-size: 2rem;
+    margin-left: 14%;
+    color: #333;
+}   
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #333;
+}
+
+.nav-container {
+    margin-right: 4%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#menu-toggle:checked ~ .nav-container {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 101;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+nav ul li a {
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Main */
+main {
+    margin: 0;
+    padding: 0;
+    margin-top: 8vh; /* Compensa os 11vh do header */
+    scroll-snap-type: y mandatory; /* Faz o scroll 'travar' no eixo Y */
+    overflow-y: scroll;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Hero */
+#hero {    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content img {
+    border-radius: 50%;
+    border: 5px solid #fff;
+    height: auto;
+    width: 60vw;
+    height: 60vw;
+    object-fit: cover;
+    margin-bottom: 8%;
+}
+
+/* Seções */
+section {
+    padding: 1rem 1rem;
+    scroll-snap-align: start;
+    min-height: 92vh; /* Ajustado para 92vh, combinando com o main */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#projetos {
+    background-color: rgba(196, 11, 11, 0.4);
+    padding-top: 0;
+}
+
+.container {
+    font-size: 20px;
+    max-width: 100%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+/* Card Itens */
+
+.card-list .card-item {
+    list-style: none;    
+    overflow: hidden;
+    position: relative;
+    height: 70vh;      /* Altura automática para se ajustar ao conteúdo */
+    width: 100%;       /* Ocupa toda a largura do container */
+    border-radius: 12px;
+    grid-area: 1 / 1;  /* Todos os itens ocupam a mesma célula do grid */
+    transition: transform 0.7s ease-in-out; /* Animação suave do slide */
+}
+.card-list .card-item .card-link {
+    width: 100%;
+    max-height: 70%;
+    display: block;
+    padding: 2px;
+    border-radius: 8px;
+    text-decoration: none;    
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.card-list .card-item .card-link:hover {
+    transform: translateY(-16px);
+    box-shadow: 0 4px 4x rgba(0,0,0,0.15);
+}
+
+.card-list .card-item .card-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+.card-list .card-item .badge {
+    padding: 4px 8px;       /* Espaçamento interno equilibrado */
+    font-size: 0.8rem;      /* Tamanho compacto mas legível */
+    font-weight: 700;       /* Negrito para destaque */
+    width: fit-content;
+    border-radius: 4px;     /* Bordas levemente arredondadas (visual tech) */
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15); /* Sombra suave para profundidade */
+}
+
+/* Cores Oficiais das Tecnologias */
+.card-list .card-item .badge.badge-html {
+    background-color: #E34F26; /* Laranja HTML5 */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-css {
+    background-color: #1572B6; /* Azul CSS3 */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-js {
+    background-color: #F7DF1E; /* Amarelo JS */
+    color: #000;               /* Texto preto para contraste */
+}
+
+.card-list .card-item .badge.badge-react {
+    background-color: #61DAFB; /* Azul React */
+    color: #000;               /* Texto preto para contraste */
+}
+
+/* Novas Badges para o App Android Fullstack */
+.card-list .card-item .badge.badge-kotlin {
+    background-color: #7F52FF; /* Roxo Kotlin */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-android {
+    background-color: #3DDC84; /* Verde Android */
+    color: #000;               /* Texto preto para leitura */
+}
+
+.card-list .card-item .badge.badge-node {
+    background-color: #339933; /* Verde Node.js */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-supabase {
+    background-color: #3ECF8E; /* Verde Supabase */
+    color: #000;               /* Preto para contraste no verde neon */
+}
+
+.card-list .card-item .badge.badge-postgres {
+    background-color: #336791; /* Azul Elefante Postgres */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-python {
+    background-color: #3776AB; /* Azul Python */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-gemini {
+    background: linear-gradient(45deg, #4E8cFF, #8E75B2); /* Gradiente alusivo à IA */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-xml {
+    background-color: #e06c00; /* Laranja escuro para Layouts XML */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-retrofit {
+    background-color: #2c3e50; /* Azul escuro técnico para Networking */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-ts {
+    background-color: #3178C6; /* Azul TypeScript */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-express {
+    background-color: #000000; /* Preto Express (Padrão) */
+    color: #fff;
+}
+
+.card-list .card-item .badge.badge-admob {
+    background-color: #ea4335; /* Vermelho Google/AdMob */
+    color: #fff;
+}
+
+.card-content {
+    position: absolute; /* Ele flutua por cima da imagem */
+    bottom: 0;          /* Cola na parte de baixo */
+    left: 0;
+    width: 90%;
+    margin: 0 5% 4% 5%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    /* 1. Cor de fundo semi-transparente (essencial para o blur aparecer) */
+    background-color: rgba(255, 255, 255, 0.1); /* Um branco bem transparente */
+    
+    /* 2. O efeito de desfoque no que está atrás */
+    backdrop-filter: blur(2px); 
+    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+
+    border-radius: 10px;
+    
+    z-index: 2;
+    
+    /* Gradiente para o texto não sumir se a imagem for clara */
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.card-content ul {
+    list-style: none;       /* Remove as bolinhas */
+    padding: 0;             /* Remove o recuo padrão da ul */
+    margin: 0 0 10px 0;     /* Margem embaixo da lista para afastar do texto */
+    display: flex;          /* Coloca os itens lado a lado */
+    flex-wrap: wrap;        /* Se houver muitas linguagens, elas pulam para a linha de baixo */
+    gap: 8px;               /* Cria o espaçamento entre as badges (horizontal e vertical) */
+}
+
+.card-list .card-item .card-title {
+    font-size: 1rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.card-list .card-item .card-button {
+    width: 100%;           /* Ocupa toda a largura interna disponível */
+    padding: 10px 0;       /* Altura definida pelo preenchimento */
+    display: block;
+    margin-top: 8px;       /* Afastamento do texto acima */
+    
+    /* Estilo Visual Sólido */
+    background-color: #5372f0;
+    color: #fff;
+    border: none;          /* Sem borda para visual mais limpo */
+    border-radius: 6px;    /* Raio menor para combinar com as badges */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(83, 114, 240, 0.3); /* Sombra suave na cor do botão */
+    transition: all 0.3s ease;
+
+    /* Tipografia Moderna */
+    font-size: 0.85rem;    /* Tamanho mais elegante que o 1.5rem anterior */
+    font-weight: 700;      /* Negrito */
+    text-transform: uppercase; /* Caixa alta */
+    letter-spacing: 1.5px; /* Espaçamento entre letras para sofisticação */
+}
+
+.card-list .card-link:hover .card-button {
+    background-color: #3d5afe;   /* Tom levemente mais vibrante no hover */
+    transform: translateY(-2px); /* O botão "sobe" levemente */
+    box-shadow: 0 6px 15px rgba(83, 114, 240, 0.5); /* Sombra aumenta */
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.carousel-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.carousel-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste da Lista para Carrossel */
+.card-list {
+    display: grid;              /* Cria um grid */
+    grid-template-columns: 1fr; /* Uma única coluna */
+    overflow: hidden;           /* Esconde os cards que estão "fora" da tela */
+}
+
+.card-item h3 {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Tecnologias */
+.tecnologias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.tech {
+    text-align: center;
+}
+
+.tech img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+/* Contato */
+#contato p {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    #hero {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        padding: 4rem 15%; /* Adiciona padding horizontal para não ficar na borda */
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex: 1; /* Permite que ocupe espaço disponível */
+    }
+
+    .nav-container {
+        display: flex;
+        flex-direction: row;
+        margin-right: 4%;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    nav ul li a {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    }
+
+    .hero-content img {
+    max-width: 26vw;
+    max-height: 26vw;
+    border-radius: 50%; /* Garante formato redondo */
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .card-list {
+        grid-template-columns: 1fr; /* Mantém carrossel (1 item) mesmo no desktop */
+        max-width: 600px;           /* Limita a largura para não ficar gigante */
+        margin: 0 auto;             /* Centraliza o carrossel */
+    }
+
+    .tecnologias-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-list {
+        grid-template-columns: 1fr; /* Mantém a lógica de pilha para o JS funcionar */
+        width: 90%;         /* Ocupa 90% da tela (deixando 10% para botões) */
+        max-width: none;    /* Remove limite de largura para escala "agradável" */
+        margin: 0 auto;     /* Centraliza (5% esq + 90% conteúdo + 5% dir) */
+        overflow: hidden;
+        padding: 20px 0;    /* Espaço extra vertical para sombras não cortarem */
+    }
+
+    .card-list .card-item {
+        height: auto;
+        width: 30%;     /* 1/3 da lista (equivale a 30% da tela total) */
+        padding: 15px;      /* Espaçamento interno mais generoso */
+    }
+
+    /* Garante altura uniforme e profissional para as imagens */
+    .card-list .card-item .card-image {
+        height: 350px;      /* Altura fixa para impor presença visual */
+        object-fit: cover;  /* Garante que a imagem não distorça */
+    }
+
+    .card-list .card-item .card-link {
+        max-height: none;   /* Remove restrição de altura anterior */
+        height: 100%;
+        
+        /* Estado "Normal" agora herda o visual do antigo Hover */
+        
+        box-shadow: 0 15px 15px rgba(0,0,0,0.1);
+        transform: translateY(-4px);
+    }
+
+    .card-list .card-item .card-link:hover {
+        /* Hover com deslocamento extra para cima (efeito de levitação maior) */
+        transform: translateY(-6px);
+        box-shadow: 0 25px 25px rgba(0,0,0,0.2); /* Sombra cresce junto com a altura */
+    }
+
+    .card-list .card-item .card-link:hover .card-content {
+        transform: translateY(-6px); /* Conteúdo sobe um pouco mais que o card */
+    }
+
+    /* Configuração do Container para posicionar os botões */
+    #projetos .container {
+        position: relative;
+        max-width: 100%;    /* Container full-width para aproveitar a tela */
+        padding: 0;         /* Remove padding lateral para alinhamento exato */
+    }
+
+    /* Botões ocupando exatamente os 5% laterais */
+    .carousel-controls {
+        position: absolute;
+        top: 0;
+        bottom: 0;          /* Ocupa toda a altura da seção */
+        width: 100%;
+        left: 0;
+        pointer-events: none; /* Permite clicar nos cards no centro */
+        margin: 0;
+        justify-content: space-between; /* Força os botões para as laterais extremas */
+    }
+
+    .carousel-controls button {
+        pointer-events: auto;           /* Reativa o clique apenas nos botões */
+        width: 5%;                      /* Largura exata solicitada */
+        height: 100%;                   /* Altura total para fácil clique */
+        border-radius: 0;               /* Retangular para preencher a lateral */
+        background: transparent;        /* Fundo limpo */
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        box-shadow: none;
+        transition: background 0.3s;
+    }
+
+    .carousel-controls button:hover {
+        background: rgba(0,0,0,0.05);   /* Feedback visual sutil ao passar o mouse */
+    }
+
+    section {
+        padding: 6rem 1rem;
+    }
+}
+
+/* Slider de Imagens (Card) */
+.image-slider {
+    overflow: hidden; /* Garante que as imagens respeitem o border-radius do container */
+    position: relative;
+    padding: 0;
+}
+
+.image-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: block;
+    animation: slideShow 16s infinite ease-in-out;
+}
+
+/* A primeira imagem dita a altura do container no fluxo normal */
+.image-slider img:first-child { position: relative; }
+
+/* Delays escalonados para criar o ciclo */
+.image-slider img:nth-child(1) { animation-delay: 0s; }
+.image-slider img:nth-child(2) { animation-delay: 4s; }
+.image-slider img:nth-child(3) { animation-delay: 8s; }
+.image-slider img:nth-child(4) { animation-delay: 12s; }
+
+@keyframes slideShow {
+    0% { opacity: 0; }
+    5% { opacity: 1; }   /* Fade in rápido (aprox 0.8s) */
+    25% { opacity: 1; }  /* Permanece visível por ~3.2s */
+    30% { opacity: 0; }  /* Fade out suave enquanto a próxima entra */
+    100% { opacity: 0; }
+}

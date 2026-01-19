@@ -1,0 +1,7 @@
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e dependências (caso use npm no futuro)
+node_modules/
+*.log
