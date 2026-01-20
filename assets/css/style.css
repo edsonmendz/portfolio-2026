@@ -384,21 +384,27 @@ section h2 {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem; /* Garante que não colem nas bordas da tela */
 }
 
 .carousel-controls button {
-    background-color: #007bff;
+    flex: 1; /* Faz os botões ocuparem todo o espaço disponível */
+    background-color: #5372f0; /* Mesma cor dos botões dos cards */
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 12px 0; /* Mais altos para facilitar o toque */
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(83, 114, 240, 0.3);
+    transition: all 0.3s ease;
 }
 
 .carousel-controls button:hover {
-    background-color: #0056b3;
+    background-color: #3d5afe;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(83, 114, 240, 0.4);
 }
 
 /* Ajuste da Lista para Carrossel */
@@ -517,19 +523,40 @@ footer {
 }
 
 @media (min-width: 1024px) {
+    /* Transforma o container em um Grid: 10% (Btn) | Conteúdo | 10% (Btn) */
+    #projetos .container {
+        display: grid;
+        grid-template-columns: 10% 1fr 10%;
+        align-items: center;
+        position: relative;
+        max-width: 100%;
+        padding: 0 2%;
+    }
+
+    /* Garante que o título ocupe a linha inteira acima, caso esteja dentro do container */
+    #projetos h2 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-bottom: 2rem;
+    }
+
     .card-list {
-        grid-template-columns: 1fr; /* Mantém a lógica de pilha para o JS funcionar */
-        width: 90%;         /* Ocupa 90% da tela (deixando 10% para botões) */
-        max-width: none;    /* Remove limite de largura para escala "agradável" */
-        margin: 0 auto;     /* Centraliza (5% esq + 90% conteúdo + 5% dir) */
-        overflow: hidden;
-        padding: 20px 0;    /* Espaço extra vertical para sombras não cortarem */
+        grid-column: 2 / 3; /* Ocupa a coluna central */
+        grid-row: 2;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        overflow: visible; /* Permite que as sombras dos cards apareçam */
+        padding: 20px 0;
     }
 
     .card-list .card-item {
         height: auto;
         width: 30%;     /* 1/3 da lista (equivale a 30% da tela total) */
         padding: 15px;      /* Espaçamento interno mais generoso */
+        transform: none !important;
     }
 
     /* Garante altura uniforme e profissional para as imagens */
@@ -558,42 +585,43 @@ footer {
         transform: translateY(-6px); /* Conteúdo sobe um pouco mais que o card */
     }
 
-    /* Configuração do Container para posicionar os botões */
-    #projetos .container {
-        position: relative;
-        max-width: 100%;    /* Container full-width para aproveitar a tela */
-        padding: 0;         /* Remove padding lateral para alinhamento exato */
-    }
-
-    /* Botões ocupando exatamente os 5% laterais */
+    /* "Desembrulha" os botões da div .carousel-controls para que participem do Grid */
     .carousel-controls {
-        position: absolute;
-        top: 0;
-        bottom: 0;          /* Ocupa toda a altura da seção */
-        width: 100%;
-        left: 0;
-        pointer-events: none; /* Permite clicar nos cards no centro */
-        margin: 0;
-        justify-content: space-between; /* Força os botões para as laterais extremas */
+        display: contents;
     }
 
+    /* Estilo dos botões no Grid */
     .carousel-controls button {
-        pointer-events: auto;           /* Reativa o clique apenas nos botões */
-        width: 5%;                      /* Largura exata solicitada */
-        height: 100%;                   /* Altura total para fácil clique */
-        border-radius: 0;               /* Retangular para preencher a lateral */
-        background: transparent;        /* Fundo limpo */
-        color: #333;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        color: #333;
         font-size: 2rem;
+        border: none;
+        cursor: pointer;
         box-shadow: none;
-        transition: background 0.3s;
+        z-index: 10;
+        transition: transform 0.2s;
     }
 
     .carousel-controls button:hover {
-        background: rgba(0,0,0,0.05);   /* Feedback visual sutil ao passar o mouse */
+        background-color: rgba(0,0,0,0.05);
+        transform: scale(1.2);
+        box-shadow: none; /* Remove a sombra azul na versão desktop */
+    }
+
+    /* Posiciona cada botão na sua coluna respectiva */
+    .carousel-controls .prev-btn {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+
+    .carousel-controls .next-btn {
+        grid-column: 3 / 4;
+        grid-row: 2;
     }
 
     section {
