@@ -10,6 +10,8 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
+    height: 100vh; /* Garante que o corpo ocupe exatamente a altura da tela */
+    overflow: hidden; /* Impede o scroll padrão do navegador */
 }
 
 h1, h2, h3 {
@@ -112,8 +114,9 @@ main {
     margin: 0;
     padding: 0;
     margin-top: 8vh; /* Compensa os 11vh do header */
+    height: 92vh; /* Define a altura exata para o scroll acontecer AQUI */
     scroll-snap-type: y mandatory; /* Faz o scroll 'travar' no eixo Y */
-    overflow-y: scroll;
+    overflow-y: auto;
     position: relative;
     z-index: 1;
 }
@@ -158,8 +161,9 @@ section {
 }
 
 #projetos {
-    background-color: rgba(196, 11, 11, 0.4);
+    background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Azul Profundo */
     padding-top: 0;
+    color: #fff;
 }
 
 .container {
@@ -172,6 +176,10 @@ section h2 {
     font-size: 2rem;
     margin-bottom: 0.4rem;
     color: #333;
+}
+
+#projetos h2 {
+    color: #fff;
 }
 
 /* Card Itens */
@@ -459,6 +467,15 @@ section h2 {
 }
 
 /* Tecnologias */
+#tecnologias {
+    background: linear-gradient(to right, #232526, #414345); /* Cinza Chumbo Tech */
+    color: #fff;
+}
+
+#tecnologias h2 {
+    color: #fff;
+}
+
 .tech-container {
     display: flex;
     flex-direction: column;
@@ -530,22 +547,50 @@ section h2 {
 }
 
 /* Contato */
+#contato {
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Sunset Vibrante */
+    color: #fff;
+    justify-content: flex-start; /* Remove o centro forçado para usarmos margens automáticas */
+}
+
+/* Centraliza o conteúdo de contato verticalmente no espaço disponível */
+#contato > .container {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#contato h2, 
+#contato a {
+    color: #fff;
+}
+
 #contato p {
     text-align: center;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent; /* Fundo transparente para integrar com a seção */
+    width: 100%;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem; /* Um pouco mais de espaço embaixo */
 }
 
 /* Media Queries */
 @media (min-width: 768px) {
     .hamburger {
         display: none;
+    }
+
+    /* Aumenta a altura do header no Desktop para acomodar a fonte maior */
+    header {
+        height: 10vh;
+    }
+
+    /* Ajusta o Main para começar mais baixo e recalcula a altura restante */
+    main {
+        margin-top: 10vh; /* Compensa a nova altura do header (10vh) */
+        height: 90vh;     /* Ocupa o restante da tela (100 - 10 = 90) */
     }
 
     #hero {
@@ -601,6 +646,10 @@ footer {
         /* Ajuste para Desktop: tamanho fixo para não ficar gigante */
         width: 120px;
         height: 120px;
+    }
+
+    section {
+        min-height: 90vh; /* A seção deve ter a mesma altura do container (main) */
     }
 }
 
