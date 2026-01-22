@@ -221,84 +221,111 @@ section h2 {
 }
 
 /* Cores Oficiais das Tecnologias */
-.card-list .card-item .badge.badge-html {
+.card-list .card-item .badge.badge-html,
+.tech-card.tech-html {
     background-color: #E34F26; /* Laranja HTML5 */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-css {
+.card-list .card-item .badge.badge-css,
+.tech-card.tech-css {
     background-color: #1572B6; /* Azul CSS3 */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-js {
+.card-list .card-item .badge.badge-js,
+.tech-card.tech-js {
     background-color: #F7DF1E; /* Amarelo JS */
     color: #000;               /* Texto preto para contraste */
 }
 
-.card-list .card-item .badge.badge-react {
+.card-list .card-item .badge.badge-react,
+.tech-card.tech-react {
     background-color: #61DAFB; /* Azul React */
     color: #000;               /* Texto preto para contraste */
 }
 
 /* Novas Badges para o App Android Fullstack */
-.card-list .card-item .badge.badge-kotlin {
+.card-list .card-item .badge.badge-kotlin,
+.tech-card.tech-kotlin {
     background-color: #7F52FF; /* Roxo Kotlin */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-android {
+.card-list .card-item .badge.badge-android,
+.tech-card.tech-android {
     background-color: #3DDC84; /* Verde Android */
     color: #000;               /* Texto preto para leitura */
 }
 
-.card-list .card-item .badge.badge-node {
+.card-list .card-item .badge.badge-node,
+.tech-card.tech-node {
     background-color: #339933; /* Verde Node.js */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-supabase {
+.card-list .card-item .badge.badge-supabase,
+.tech-card.tech-supabase {
     background-color: #3ECF8E; /* Verde Supabase */
     color: #000;               /* Preto para contraste no verde neon */
 }
 
-.card-list .card-item .badge.badge-postgres {
+.card-list .card-item .badge.badge-postgres,
+.tech-card.tech-postgres {
     background-color: #336791; /* Azul Elefante Postgres */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-python {
+.card-list .card-item .badge.badge-python,
+.tech-card.tech-python {
     background-color: #3776AB; /* Azul Python */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-gemini {
+.card-list .card-item .badge.badge-ai,
+.tech-card.tech-ai {
     background: linear-gradient(45deg, #4E8cFF, #8E75B2); /* Gradiente alusivo à IA */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-xml {
+.card-list .card-item .badge.badge-xml,
+.tech-card.tech-xml {
     background-color: #e06c00; /* Laranja escuro para Layouts XML */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-retrofit {
+.card-list .card-item .badge.badge-retrofit,
+.tech-card.tech-retrofit {
     background-color: #2c3e50; /* Azul escuro técnico para Networking */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-ts {
+.card-list .card-item .badge.badge-ts,
+.tech-card.tech-ts {
     background-color: #3178C6; /* Azul TypeScript */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-express {
+.card-list .card-item .badge.badge-express,
+.tech-card.tech-express {
     background-color: #000000; /* Preto Express (Padrão) */
     color: #fff;
 }
 
-.card-list .card-item .badge.badge-admob {
+.card-list .card-item .badge.badge-admob,
+.tech-card.tech-admob {
     background-color: #ea4335; /* Vermelho Google/AdMob */
+    color: #fff;
+}
+
+/* Novas cores para tecnologias encontradas nos projetos */
+.tech-card.tech-bootstrap {
+    background-color: #7952B3; /* Roxo Bootstrap */
+    color: #fff;
+}
+
+.tech-card.tech-jquery {
+    background-color: #0769AD; /* Azul jQuery */
     color: #fff;
 }
 
@@ -432,21 +459,74 @@ section h2 {
 }
 
 /* Tecnologias */
-.tecnologias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+.tech-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre as linhas */
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.tech-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Máscara para suavizar as bordas laterais */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-track {
+    display: flex;
+    width: max-content;
     gap: 1rem;
-    justify-items: center;
+    animation: marquee 50s linear infinite;
 }
 
-.tech {
+.tech-row:nth-child(even) .tech-track {
+    animation-name: marquee-reverse;
+}
+
+.tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    width: 30vw; /* Tamanho Mobile solicitado */
+    height: 30vw;
+    flex-shrink: 0; /* Impede que o card encolha no flex */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
-.tech img {
-    width: 50px;
-    height: 50px;
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tech-card i {
+    font-size: 3rem; /* Tamanho equivalente a ~50px */
     margin-bottom: 0.5rem;
+    display: block;
+}
+
+.tech-card img {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move metade do caminho (o tamanho do conjunto original) */
+}
+
+@keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 /* Contato */
@@ -517,8 +597,10 @@ footer {
         margin: 0 auto;             /* Centraliza o carrossel */
     }
 
-    .tecnologias-grid {
-        grid-template-columns: repeat(5, 1fr);
+    .tech-card {
+        /* Ajuste para Desktop: tamanho fixo para não ficar gigante */
+        width: 120px;
+        height: 120px;
     }
 }
 
