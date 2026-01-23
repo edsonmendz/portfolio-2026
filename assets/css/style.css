@@ -499,6 +499,7 @@ section h2 {
 }
 
 .tech-row {
+    padding: 1vh 0 0 0; /* Espaçamento vertical entre as linhas */
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -524,8 +525,8 @@ section h2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 30vw; /* Tamanho Mobile solicitado */
-    height: 30vw;
+    width: 27.5vw; /* Tamanho Mobile solicitado */
+    height: 27.5vw;
     flex-shrink: 0; /* Impede que o card encolha no flex */
     border-radius: 5px;
     font-weight: bold;
