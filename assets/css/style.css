@@ -188,7 +188,7 @@ section h2 {
     list-style: none;    
     overflow: hidden;
     position: relative;
-    height: 70vh;      /* Altura automática para se ajustar ao conteúdo */
+    height: 55vh;      /* Altura reduzida para caber na tela mobile sem scroll */
     width: 100%;       /* Ocupa toda a largura do container */
     border-radius: 12px;
     grid-area: 1 / 1;  /* Todos os itens ocupam a mesma célula do grid */
@@ -196,7 +196,7 @@ section h2 {
 }
 .card-list .card-item .card-link {
     width: 100%;
-    max-height: 70%;
+    height: 100%;
     display: block;
     padding: 2px;
     border-radius: 8px;
@@ -564,13 +564,7 @@ section h2 {
 #contato {
     background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Sunset Vibrante */
     color: #fff;
-    justify-content: flex-start; /* Remove o centro forçado para usarmos margens automáticas */
-}
-
-/* Centraliza o conteúdo de contato verticalmente no espaço disponível */
-#contato > .container {
-    margin-top: auto;
-    margin-bottom: auto;
+    position: relative;
 }
 
 #contato h2, 
@@ -582,10 +576,19 @@ section h2 {
     text-align: center;
 }
 
+#contato > .container {    
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20vh;
+}
+
 /* Footer */
 footer {
     background-color: transparent; /* Fundo transparente para integrar com a seção */
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     text-align: center;
     padding: 1rem 1rem 2rem 1rem; /* Um pouco mais de espaço embaixo */
 }
@@ -603,8 +606,8 @@ footer {
 
     /* Ajusta o Main para começar mais baixo e recalcula a altura restante */
     main {
-        margin-top: 10vh; /* Compensa a nova altura do header (10vh) */
-        height: 90vh;     /* Ocupa o restante da tela (100 - 10 = 90) */
+        margin-top: 10vh;
+        height: 90vh;
     }
 
     #hero {
