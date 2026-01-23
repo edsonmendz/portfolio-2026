@@ -54,7 +54,7 @@ const techData = [
             { name: 'TypeScript', icon: 'devicon-typescript-plain', type: 'icon', class: 'tech-ts' },
             { name: 'Express', icon: 'devicon-express-original', type: 'icon', class: 'tech-express' },
             { name: 'Supabase', icon: 'devicon-supabase-plain', type: 'icon', class: 'tech-supabase' },
-            { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', type: 'icon', class: 'tech-postgres' },
+            { name: `Postgre`, icon: 'devicon-postgresql-plain', type: 'icon', class: 'tech-postgres' },
             { name: 'Python', icon: 'devicon-python-plain', type: 'icon', class: 'tech-python' }
         ]
     },
