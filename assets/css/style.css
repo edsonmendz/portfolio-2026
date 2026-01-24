@@ -10,11 +10,15 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
-    height: 100vh; /* Garante que o corpo ocupe exatamente a altura da tela */
-    overflow: hidden; /* Impede o scroll padrão do navegador */
+    height: 100vh;
+    /* Garante que o corpo ocupe exatamente a altura da tela */
+    overflow: hidden;
+    /* Impede o scroll padrão do navegador */
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin-bottom: 0rem;
 }
 
@@ -34,11 +38,12 @@ a:hover {
 /* Header */
 header {
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
-    height: 8vh; /* Garante 10% da viewport para o header */
+    height: 8vh;
+    /* Garante 10% da viewport para o header */
     z-index: 100;
 }
 
@@ -46,18 +51,21 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
-nav > div:first-child {
+nav>div:first-child {
     flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 nav #nome h1 {
     font-size: 2rem;
     margin-left: 14%;
     color: #333;
-}   
+}
+
 #menu-toggle {
     display: none;
 }
@@ -78,13 +86,13 @@ nav #nome h1 {
     position: relative;
 }
 
-#menu-toggle:checked ~ .nav-container {
+#menu-toggle:checked~.nav-container {
     display: flex;
     position: absolute;
     top: 100%;
     right: 0;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     border-radius: 5px;
     z-index: 101;
@@ -113,9 +121,12 @@ nav ul li a:hover {
 main {
     margin: 0;
     padding: 0;
-    margin-top: 8vh; /* Compensa os 11vh do header */
-    height: 92vh; /* Define a altura exata para o scroll acontecer AQUI */
-    scroll-snap-type: y mandatory; /* Faz o scroll 'travar' no eixo Y */
+    margin-top: 8vh;
+    /* Compensa os 11vh do header */
+    height: 92vh;
+    /* Define a altura exata para o scroll acontecer AQUI */
+    scroll-snap-type: y mandatory;
+    /* Faz o scroll 'travar' no eixo Y */
     overflow-y: auto;
     position: relative;
     z-index: 1;
@@ -123,7 +134,7 @@ main {
 
 
 /* Hero */
-#hero {    
+#hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     padding: 4rem 1rem;
@@ -154,14 +165,16 @@ main {
 section {
     padding: 1rem 1rem;
     scroll-snap-align: start;
-    min-height: 92vh; /* Ajustado para 92vh, combinando com o main */
+    min-height: 92vh;
+    /* Ajustado para 92vh, combinando com o main */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #projetos {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Degradê mais dinâmico */
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    /* Degradê mais dinâmico */
     color: #fff;
     justify-content: center;
 }
@@ -185,29 +198,34 @@ section h2 {
 /* Card Itens */
 
 .card-list .card-item {
-    list-style: none;    
+    list-style: none;
     overflow: hidden;
     position: relative;
-    height: 55vh;      /* Altura reduzida para caber na tela mobile sem scroll */
-    width: 100%;       /* Ocupa toda a largura do container */
+    height: 55vh;
+    /* Altura reduzida para caber na tela mobile sem scroll */
+    width: 100%;
+    /* Ocupa toda a largura do container */
     border-radius: 12px;
-    grid-area: 1 / 1;  /* Todos os itens ocupam a mesma célula do grid */
-    transition: transform 0.7s ease-in-out; /* Animação suave do slide */
+    grid-area: 1 / 1;
+    /* Todos os itens ocupam a mesma célula do grid */
+    transition: transform 0.7s ease-in-out;
+    /* Animação suave do slide */
 }
+
 .card-list .card-item .card-link {
     width: 100%;
     height: 100%;
     display: block;
     padding: 2px;
     border-radius: 8px;
-    text-decoration: none;    
-    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     transition: 0.3s ease;
 }
 
 .card-list .card-item .card-link:hover {
     transform: translateY(-16px);
-    box-shadow: 0 4px 4x rgba(0,0,0,0.15);
+    box-shadow: 0 4px 4x rgba(0, 0, 0, 0.15);
 }
 
 .card-list .card-item .card-image {
@@ -219,127 +237,156 @@ section h2 {
 }
 
 .card-list .card-item .badge {
-    padding: 4px 8px;       /* Espaçamento interno equilibrado */
-    font-size: 0.8rem;      /* Tamanho compacto mas legível */
-    font-weight: 700;       /* Negrito para destaque */
+    padding: 4px 8px;
+    /* Espaçamento interno equilibrado */
+    font-size: 0.8rem;
+    /* Tamanho compacto mas legível */
+    font-weight: 700;
+    /* Negrito para destaque */
     width: fit-content;
-    border-radius: 4px;     /* Bordas levemente arredondadas (visual tech) */
+    border-radius: 4px;
+    /* Bordas levemente arredondadas (visual tech) */
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15); /* Sombra suave para profundidade */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    /* Sombra suave para profundidade */
 }
 
 /* Cores Oficiais das Tecnologias */
 .card-list .card-item .badge.badge-html,
 .tech-card.tech-html {
-    background-color: #E34F26; /* Laranja HTML5 */
+    background-color: #E34F26;
+    /* Laranja HTML5 */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-css,
 .tech-card.tech-css {
-    background-color: #1572B6; /* Azul CSS3 */
+    background-color: #1572B6;
+    /* Azul CSS3 */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-js,
 .tech-card.tech-js {
-    background-color: #F7DF1E; /* Amarelo JS */
-    color: #000;               /* Texto preto para contraste */
+    background-color: #F7DF1E;
+    /* Amarelo JS */
+    color: #000;
+    /* Texto preto para contraste */
 }
 
 .card-list .card-item .badge.badge-react,
 .tech-card.tech-react {
-    background-color: #61DAFB; /* Azul React */
-    color: #000;               /* Texto preto para contraste */
+    background-color: #61DAFB;
+    /* Azul React */
+    color: #000;
+    /* Texto preto para contraste */
 }
 
 /* Novas Badges para o App Android Fullstack */
 .card-list .card-item .badge.badge-kotlin,
 .tech-card.tech-kotlin {
-    background-color: #7F52FF; /* Roxo Kotlin */
+    background-color: #7F52FF;
+    /* Roxo Kotlin */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-android,
 .tech-card.tech-android {
-    background-color: #3DDC84; /* Verde Android */
-    color: #000;               /* Texto preto para leitura */
+    background-color: #3DDC84;
+    /* Verde Android */
+    color: #000;
+    /* Texto preto para leitura */
 }
 
 .card-list .card-item .badge.badge-node,
 .tech-card.tech-node {
-    background-color: #339933; /* Verde Node.js */
+    background-color: #339933;
+    /* Verde Node.js */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-supabase,
 .tech-card.tech-supabase {
-    background-color: #3ECF8E; /* Verde Supabase */
-    color: #000;               /* Preto para contraste no verde neon */
+    background-color: #3ECF8E;
+    /* Verde Supabase */
+    color: #000;
+    /* Preto para contraste no verde neon */
 }
 
 .card-list .card-item .badge.badge-postgres,
 .tech-card.tech-postgres {
-    background-color: #336791; /* Azul Elefante Postgres */
+    background-color: #336791;
+    /* Azul Elefante Postgres */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-python,
 .tech-card.tech-python {
-    background-color: #3776AB; /* Azul Python */
+    background-color: #3776AB;
+    /* Azul Python */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-ai,
 .tech-card.tech-ai {
-    background: linear-gradient(45deg, #4E8cFF, #8E75B2); /* Gradiente alusivo à IA */
+    background: linear-gradient(45deg, #4E8cFF, #8E75B2);
+    /* Gradiente alusivo à IA */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-xml,
 .tech-card.tech-xml {
-    background-color: #e06c00; /* Laranja escuro para Layouts XML */
+    background-color: #e06c00;
+    /* Laranja escuro para Layouts XML */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-retrofit,
 .tech-card.tech-retrofit {
-    background-color: #2c3e50; /* Azul escuro técnico para Networking */
+    background-color: #2c3e50;
+    /* Azul escuro técnico para Networking */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-ts,
 .tech-card.tech-ts {
-    background-color: #3178C6; /* Azul TypeScript */
+    background-color: #3178C6;
+    /* Azul TypeScript */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-express,
 .tech-card.tech-express {
-    background-color: #000000; /* Preto Express (Padrão) */
+    background-color: #000000;
+    /* Preto Express (Padrão) */
     color: #fff;
 }
 
 .card-list .card-item .badge.badge-admob,
 .tech-card.tech-admob {
-    background-color: #ea4335; /* Vermelho Google/AdMob */
+    background-color: #ea4335;
+    /* Vermelho Google/AdMob */
     color: #fff;
 }
 
 /* Novas cores para tecnologias encontradas nos projetos */
 .tech-card.tech-bootstrap {
-    background-color: #7952B3; /* Roxo Bootstrap */
+    background-color: #7952B3;
+    /* Roxo Bootstrap */
     color: #fff;
 }
 
 .tech-card.tech-jquery {
-    background-color: #0769AD; /* Azul jQuery */
+    background-color: #0769AD;
+    /* Azul jQuery */
     color: #fff;
 }
 
 .card-content {
-    position: absolute; /* Ele flutua por cima da imagem */
-    bottom: 0;          /* Cola na parte de baixo */
+    position: absolute;
+    /* Ele flutua por cima da imagem */
+    bottom: 0;
+    /* Cola na parte de baixo */
     left: 0;
     width: 90%;
     margin: 0 5% 4% 5%;
@@ -347,18 +394,20 @@ section h2 {
     box-sizing: border-box;
 
     /* 1. Cor de fundo semi-transparente (essencial para o blur aparecer) */
-    background-color: rgba(255, 255, 255, 0.1); /* Um branco bem transparente */
-    
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Um branco bem transparente */
+
     /* 2. O efeito de desfoque no que está atrás */
-    backdrop-filter: blur(2px); 
-    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Suporte para Safari */
 
     border-radius: 10px;
-    
+
     z-index: 2;
-    
+
     /* Gradiente para o texto não sumir se a imagem for clara */
-    background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: #fff;
     transition: transform 0.3s ease;
 }
@@ -373,12 +422,18 @@ section h2 {
 }
 
 .card-content ul {
-    list-style: none;       /* Remove as bolinhas */
-    padding: 0;             /* Remove o recuo padrão da ul */
-    margin: 0 0 10px 0;     /* Margem embaixo da lista para afastar do texto */
-    display: flex;          /* Coloca os itens lado a lado */
-    flex-wrap: wrap;        /* Se houver muitas linguagens, elas pulam para a linha de baixo */
-    gap: 8px;               /* Cria o espaçamento entre as badges (horizontal e vertical) */
+    list-style: none;
+    /* Remove as bolinhas */
+    padding: 0;
+    /* Remove o recuo padrão da ul */
+    margin: 0 0 10px 0;
+    /* Margem embaixo da lista para afastar do texto */
+    display: flex;
+    /* Coloca os itens lado a lado */
+    flex-wrap: wrap;
+    /* Se houver muitas linguagens, elas pulam para a linha de baixo */
+    gap: 8px;
+    /* Cria o espaçamento entre as badges (horizontal e vertical) */
 }
 
 .card-list .card-item .card-title {
@@ -388,46 +443,60 @@ section h2 {
 }
 
 .card-list .card-item .card-button {
-    width: 100%;           /* Ocupa toda a largura interna disponível */
-    padding: 10px 0;       /* Altura definida pelo preenchimento */
+    width: 100%;
+    /* Ocupa toda a largura interna disponível */
+    padding: 10px 0;
+    /* Altura definida pelo preenchimento */
     display: block;
-    margin-top: 8px;       /* Afastamento do texto acima */
-    
+    margin-top: 8px;
+    /* Afastamento do texto acima */
+
     /* Estilo Visual Sólido */
     background-color: #5372f0;
     color: #fff;
-    border: none;          /* Sem borda para visual mais limpo */
-    border-radius: 6px;    /* Raio menor para combinar com as badges */
+    border: none;
+    /* Sem borda para visual mais limpo */
+    border-radius: 6px;
+    /* Raio menor para combinar com as badges */
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(83, 114, 240, 0.3); /* Sombra suave na cor do botão */
+    box-shadow: 0 4px 10px rgba(83, 114, 240, 0.3);
+    /* Sombra suave na cor do botão */
     transition: all 0.3s ease;
 
     /* Tipografia Moderna */
-    font-size: 0.85rem;    /* Tamanho mais elegante que o 1.5rem anterior */
-    font-weight: 700;      /* Negrito */
-    text-transform: uppercase; /* Caixa alta */
-    letter-spacing: 1.5px; /* Espaçamento entre letras para sofisticação */
+    font-size: 0.85rem;
+    /* Tamanho mais elegante que o 1.5rem anterior */
+    font-weight: 700;
+    /* Negrito */
+    text-transform: uppercase;
+    /* Caixa alta */
+    letter-spacing: 1.5px;
+    /* Espaçamento entre letras para sofisticação */
 }
 
 .card-list .card-link:hover .card-button {
-    background-color: #3d5afe;   /* Tom levemente mais vibrante no hover */
-    transform: translateY(-2px); /* O botão "sobe" levemente */
-    box-shadow: 0 6px 15px rgba(83, 114, 240, 0.5); /* Sombra aumenta */
+    background-color: #3d5afe;
+    /* Tom levemente mais vibrante no hover */
+    transform: translateY(-2px);
+    /* O botão "sobe" levemente */
+    box-shadow: 0 6px 15px rgba(83, 114, 240, 0.5);
+    /* Sombra aumenta */
 }
 
 .carousel-controls {
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
-    padding: 0;    
-    justify-content:space-around;
+    padding: 0;
+    justify-content: space-around;
 }
 
 .carousel-controls button {
     flex: 0 0 auto;
     width: 60px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.1); /* Efeito Glassmorphism */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Efeito Glassmorphism */
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -452,9 +521,12 @@ section h2 {
 
 /* Ajuste da Lista para Carrossel */
 .card-list {
-    display: grid;              /* Cria um grid */
-    grid-template-columns: 1fr; /* Uma única coluna */
-    overflow: hidden;           /* Esconde os cards que estão "fora" da tela */
+    display: grid;
+    /* Cria um grid */
+    grid-template-columns: 1fr;
+    /* Uma única coluna */
+    overflow: hidden;
+    /* Esconde os cards que estão "fora" da tela */
 }
 
 .card-item h3 {
@@ -478,7 +550,7 @@ section h2 {
 #tecnologias {
     /* Fundo escuro com padrão de grade sutil para um visual "blueprint" */
     background-color: #111;
-    background-image: 
+    background-image:
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 35px 35px;
@@ -493,13 +565,15 @@ section h2 {
 .tech-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Espaço entre as linhas */
+    gap: 1.5rem;
+    /* Espaço entre as linhas */
     overflow: hidden;
     padding: 1rem 0;
 }
 
 .tech-row {
-    padding: 1vh 0 0 0; /* Espaçamento vertical entre as linhas */
+    padding: 1vh 0 0 0;
+    /* Espaçamento vertical entre as linhas */
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -525,9 +599,11 @@ section h2 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 27.5vw; /* Tamanho Mobile solicitado */
+    width: 27.5vw;
+    /* Tamanho Mobile solicitado */
     height: 27.5vw;
-    flex-shrink: 0; /* Impede que o card encolha no flex */
+    flex-shrink: 0;
+    /* Impede que o card encolha no flex */
     border-radius: 5px;
     font-weight: bold;
     transition: transform 0.3s ease;
@@ -535,11 +611,12 @@ section h2 {
 
 .tech-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tech-card i {
-    font-size: 3rem; /* Tamanho equivalente a ~50px */
+    font-size: 3rem;
+    /* Tamanho equivalente a ~50px */
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -552,23 +629,36 @@ section h2 {
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Move metade do caminho (o tamanho do conjunto original) */
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move metade do caminho (o tamanho do conjunto original) */
 }
 
 @keyframes marquee-reverse {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* Contato */
 #contato {
-    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* Sunset Vibrante */
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+    /* Sunset Vibrante */
     color: #fff;
     position: relative;
 }
 
-#contato h2, 
+#contato h2,
 #contato a {
     color: #fff;
 }
@@ -577,7 +667,7 @@ section h2 {
     text-align: center;
 }
 
-#contato > .container {    
+#contato>.container {
     align-items: center;
     justify-content: center;
     margin-bottom: 20vh;
@@ -585,13 +675,15 @@ section h2 {
 
 /* Footer */
 footer {
-    background-color: transparent; /* Fundo transparente para integrar com a seção */
+    background-color: transparent;
+    /* Fundo transparente para integrar com a seção */
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     text-align: center;
-    padding: 1rem 1rem 2rem 1rem; /* Um pouco mais de espaço embaixo */
+    padding: 1rem 1rem 2rem 1rem;
+    /* Um pouco mais de espaço embaixo */
 }
 
 /* Media Queries */
@@ -602,7 +694,14 @@ footer {
 
     /* Aumenta a altura do header no Desktop para acomodar a fonte maior */
     header {
+        display: flex;
         height: 10vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav {
+        width: 100%;
     }
 
     /* Ajusta o Main para começar mais baixo e recalcula a altura restante */
@@ -616,15 +715,19 @@ footer {
         flex-direction: row;
         align-items: center;
         gap: 2rem;
-        padding: 4rem 15%; /* Adiciona padding horizontal para não ficar na borda */
+        padding: 4rem 15%;
+        /* Adiciona padding horizontal para não ficar na borda */
     }
 
     .hero-content {
         display: flex;
         align-items: center;
         gap: 2rem;
-        flex: 1; /* Permite que ocupe espaço disponível */
+        flex: 1;
+        /* Permite que ocupe espaço disponível */
     }
+
+
 
     .nav-container {
         display: flex;
@@ -638,16 +741,17 @@ footer {
     }
 
     nav ul li a {
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
     }
 
     .hero-content img {
-    max-width: 26vw;
-    max-height: 26vw;
-    border-radius: 50%; /* Garante formato redondo */
+        max-width: 26vw;
+        max-height: 26vw;
+        border-radius: 50%;
+        /* Garante formato redondo */
     }
 
     .hero-content h1 {
@@ -655,9 +759,12 @@ footer {
     }
 
     .card-list {
-        grid-template-columns: 1fr; /* Mantém carrossel (1 item) mesmo no desktop */
-        max-width: 600px;           /* Limita a largura para não ficar gigante */
-        margin: 0 auto;             /* Centraliza o carrossel */
+        grid-template-columns: 1fr;
+        /* Mantém carrossel (1 item) mesmo no desktop */
+        max-width: 600px;
+        /* Limita a largura para não ficar gigante */
+        margin: 0 auto;
+        /* Centraliza o carrossel */
     }
 
     .tech-card {
@@ -667,12 +774,21 @@ footer {
     }
 
     section {
-        min-height: 90vh; /* A seção deve ter a mesma altura do container (main) */
+        min-height: 90vh;
+        /* A seção deve ter a mesma altura do container (main) */
         max-height: 90vh;
     }
 }
 
 @media (min-width: 1024px) {
+
+    nav ul li a {
+        font-size: 1.8rem;
+    }
+
+    #nome {
+        margin-left: 12%;        
+    }
     /* Transforma o container em um Grid: 10% (Btn) | Conteúdo | 10% (Btn) */
     #projetos .container {
         display: grid;
@@ -691,48 +807,57 @@ footer {
     }
 
     .card-list {
-        grid-column: 2 / 3; /* Ocupa a coluna central */
+        grid-column: 2 / 3;
+        /* Ocupa a coluna central */
         grid-row: 2;
         display: flex;
         justify-content: space-between;
         width: 100%;
         max-width: none;
         margin: 0;
-        overflow: visible; /* Permite que as sombras dos cards apareçam */
+        overflow: visible;
+        /* Permite que as sombras dos cards apareçam */
         padding: 20px 0;
     }
 
     .card-list .card-item {
         height: auto;
-        width: 30%;     /* 1/3 da lista (equivale a 30% da tela total) */
-        padding: 15px;      /* Espaçamento interno mais generoso */
+        width: 30%;
+        /* 1/3 da lista (equivale a 30% da tela total) */
+        padding: 15px;
+        /* Espaçamento interno mais generoso */
         transform: none !important;
     }
 
     /* Garante altura uniforme e profissional para as imagens */
     .card-list .card-item .card-image {
-        height: 350px;      /* Altura fixa para impor presença visual */
-        object-fit: cover;  /* Garante que a imagem não distorça */
+        height: 350px;
+        /* Altura fixa para impor presença visual */
+        object-fit: cover;
+        /* Garante que a imagem não distorça */
     }
 
     .card-list .card-item .card-link {
-        max-height: none;   /* Remove restrição de altura anterior */
+        max-height: none;
+        /* Remove restrição de altura anterior */
         height: 100%;
-        
+
         /* Estado "Normal" agora herda o visual do antigo Hover */
-        
-        box-shadow: 0 15px 15px rgba(0,0,0,0.1);
+
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
         transform: translateY(-4px);
     }
 
     .card-list .card-item .card-link:hover {
         /* Hover com deslocamento extra para cima (efeito de levitação maior) */
         transform: translateY(-6px);
-        box-shadow: 0 25px 25px rgba(0,0,0,0.2); /* Sombra cresce junto com a altura */
+        box-shadow: 0 25px 25px rgba(0, 0, 0, 0.2);
+        /* Sombra cresce junto com a altura */
     }
 
     .card-list .card-item .card-link:hover .card-content {
-        transform: translateY(-6px); /* Conteúdo sobe um pouco mais que o card */
+        transform: translateY(-6px);
+        /* Conteúdo sobe um pouco mais que o card */
     }
 
     /* "Desembrulha" os botões da div .carousel-controls para que participem do Grid */
@@ -760,9 +885,10 @@ footer {
     }
 
     .carousel-controls button:hover {
-        background-color: rgba(0,0,0,0.05);
+        background-color: rgba(0, 0, 0, 0.05);
         transform: scale(1.2);
-        box-shadow: none; /* Remove a sombra azul na versão desktop */
+        box-shadow: none;
+        /* Remove a sombra azul na versão desktop */
         color: #fff;
     }
 
@@ -784,7 +910,8 @@ footer {
 
 /* Slider de Imagens (Card) */
 .image-slider {
-    overflow: hidden; /* Garante que as imagens respeitem o border-radius do container */
+    overflow: hidden;
+    /* Garante que as imagens respeitem o border-radius do container */
     position: relative;
     padding: 0;
 }
@@ -802,18 +929,48 @@ footer {
 }
 
 /* A primeira imagem dita a altura do container no fluxo normal */
-.image-slider img:first-child { position: relative; }
+.image-slider img:first-child {
+    position: relative;
+}
 
 /* Delays escalonados para criar o ciclo */
-.image-slider img:nth-child(1) { animation-delay: 0s; }
-.image-slider img:nth-child(2) { animation-delay: 4s; }
-.image-slider img:nth-child(3) { animation-delay: 8s; }
-.image-slider img:nth-child(4) { animation-delay: 12s; }
+.image-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.image-slider img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.image-slider img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.image-slider img:nth-child(4) {
+    animation-delay: 12s;
+}
 
 @keyframes slideShow {
-    0% { opacity: 0; }
-    5% { opacity: 1; }   /* Fade in rápido (aprox 0.8s) */
-    25% { opacity: 1; }  /* Permanece visível por ~3.2s */
-    30% { opacity: 0; }  /* Fade out suave enquanto a próxima entra */
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    /* Fade in rápido (aprox 0.8s) */
+    25% {
+        opacity: 1;
+    }
+
+    /* Permanece visível por ~3.2s */
+    30% {
+        opacity: 0;
+    }
+
+    /* Fade out suave enquanto a próxima entra */
+    100% {
+        opacity: 0;
+    }
 }

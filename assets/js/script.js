@@ -98,3 +98,24 @@ if (techContainer) {
         techContainer.appendChild(rowDiv);
     });
 }
+
+/* --- Alteração Dinâmica do Título do Header --- */
+const headerTitle = document.querySelector('#nome h1');
+const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const titles = {
+                'hero': 'Edson Mendes',
+                'projetos': 'Projetos',
+                'tecnologias': 'Tecnologias',
+                'contato': 'Contato'
+            };
+            if (titles[id]) headerTitle.textContent = titles[id];
+        }
+    });
+}, { threshold: 0.5 }); // Aciona quando 50% da seção está visível
+
+sections.forEach(section => observer.observe(section));
